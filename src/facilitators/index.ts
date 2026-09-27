@@ -18,3 +18,4 @@ export { virtuals, virtualsFacilitator } from './virtuals';
 export { polygon, polygonFacilitator } from './polygon';
 export { kamiyo, kamiyoFacilitator } from './kamiyo';
 export { heurist, heuristFacilitator } from './heurist';
+export { xpay, xpayFacilitator } from './xpay';
