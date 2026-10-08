@@ -1,23 +1,33 @@
 import { Network, AccessType } from '../types';
 import { USDC_BASE_TOKEN } from '../constants';
 
-import type { Facilitator, FacilitatorConfig } from '../types';
+import type { Facilitator, FacilitatorConfigConstructor } from '../types';
 
-export const xpay: FacilitatorConfig = {
-  url: 'https://facilitator-xpay.llc',
-};
+type XPayConfig = { apiKey: string };
+
+const FACILITATOR_URL = 'https://facilitator-xpay.llc';
+
+export const xpay: FacilitatorConfigConstructor<XPayConfig> = ({ apiKey }) => ({
+  url: FACILITATOR_URL,
+  createAuthHeaders: async () => ({
+    verify: { 'X-API-Key': apiKey },
+    settle: { 'X-API-Key': apiKey },
+    supported: {},
+    list: {},
+  }),
+});
 
 export const xpayFacilitator = {
   id: 'xpay',
   metadata: {
     name: 'X Pay',
     image: 'https://x402scan.com/xpay.png',
-    docsUrl: 'https://xpay.llc/docs',
+    docsUrl: 'https://facilitator-xpay.llc/docs',
     color: '#91D41E',
   },
   config: xpay,
-  facilitatorUrl: xpay.url,
-  accessType: AccessType.PUBLIC,
+  facilitatorUrl: FACILITATOR_URL,
+  accessType: AccessType.GATED,
   fee: 0,
   addresses: {
     [Network.BASE]: [
@@ -28,4 +38,4 @@ export const xpayFacilitator = {
       },
     ],
   },
-} as const satisfies Facilitator;
+} as const satisfies Facilitator<XPayConfig>;
