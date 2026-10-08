@@ -139,7 +139,7 @@ This package includes pre-configured integrations for the following X402 facilit
 | **402104**     | BASE          | No        | No                             |
 | **KAMIYO**     | BASE, POLYGON, SOLANA | ✅ Yes    | No                             |
 | **Heurist**    | BASE          | No        | No                             |
-| **X Pay**      | BASE          | No        | No                             |
+| **X Pay**      | BASE          | No        | Yes                            |
 
 ### Import Individual Facilitators
 
@@ -350,3 +350,13 @@ bun run build
 
 After the PR is merged and a new release is tagged, your facilitator will appear
 on both the website and in the lib.
+
+### X Pay merchant authentication
+
+X Pay verification and settlement require a merchant API key. Keep the key on your server.
+
+```typescript
+const facilitator = xpay({ apiKey: process.env.XPAY_API_KEY! });
+```
+
+Capabilities are public at https://facilitator-xpay.llc/supported. Integration guide and onboarding: https://facilitator-xpay.llc/docs.
