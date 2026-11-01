@@ -49,4 +49,5 @@ export enum Network {
   BASE = 'base',
   POLYGON = 'polygon',
   SOLANA = 'solana',
+  BSC = 'bsc',
 }

@@ -19,6 +19,7 @@ import {
   kamiyoFacilitator,
   heuristFacilitator,
   xpayFacilitator,
+  xpayBscFacilitator,
 } from '../facilitators';
 
 import { validateUniqueFacilitators } from './validate';
@@ -46,6 +47,7 @@ const FACILITATORS = validateUniqueFacilitators([
   kamiyoFacilitator,
   heuristFacilitator,
   xpayFacilitator,
+  xpayBscFacilitator,
 ]);
 
 export const allFacilitators: Facilitator[] =

@@ -140,6 +140,7 @@ This package includes pre-configured integrations for the following X402 facilit
 | **KAMIYO**     | BASE, POLYGON, SOLANA | ✅ Yes    | No                             |
 | **Heurist**    | BASE          | No        | No                             |
 | **X Pay**      | BASE          | No        | No                             |
+| **X Pay BSC**  | BSC           | No        | No                             |
 
 ### Import Individual Facilitators
 
@@ -163,7 +164,8 @@ import {
   f402104,
   kamiyo,
   heurist,
-  xpay
+  xpay,
+  xpayBsc
 } from '@swader/x402facilitators';
 
 // Facilitators requiring setup
